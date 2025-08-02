@@ -1,0 +1,30 @@
+【開発環境メモ】
+
+■ 仮想環境
+- python -m venv venv
+- venv\Scripts\activate
+
+■ インストール済みパッケージ（バージョン）
+- Flask 3.1.1
+- transformers 4.54.1
+- torch 2.7.1
+- その他：blinker, certifi, click, colorama, filelock, fsspec, huggingface-hub, idna, itsdangerous, Jinja2, MarkupSafe, mpmath, networkx, numpy, packaging, pip, PyYAML, regex, requests, safetensors, setuptools, sympy, tokenizers, tqdm, typing_extensions, urllib3, Werkzeug
+
+■ パッケージ一覧の保存
+- pip freeze > requirements.txt
+
+■ .envファイル用途
+- 環境変数やAPIキーなどを記載
+- 例：
+  FLASK_ENV=development
+  SECRET_KEY=your_secret_key
+
+■ 参考コマンド
+- パッケージ一覧表示：pip list
+- バージョン確認：pip show パッケージ名
+- 仮想環境の有効化（PowerShell）：.\\venv\\Scripts\\Activate.ps1
+- 仮想環境の有効化（コマンドプロンプト）：.\\venv\\Scripts\\activate
+- 仮想環境の作成：python -m venv venv
+- Flaskアプリの起動：python app.py
+- requirements.txtの作成：pip freeze > requirements.txt
+- パッケージのインストール：pip install パッケージ名
