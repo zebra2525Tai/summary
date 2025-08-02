@@ -10,5 +10,17 @@
     <textarea placeholder="ここにテキストを貼り付けてください"></textarea>
     <button>要約する</button>
     <div id="summary"></div>
+    <script>
+document.querySelector('button').onclick = async function() {
+    const text = document.querySelector('textarea').value;
+    const res = await fetch('/summarize', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({text})
+    });
+    const data = await res.json();
+    document.getElementById('summary').textContent = data.summary || data.error;
+};
+</script>
 </body>
 </html>
