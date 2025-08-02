@@ -9,12 +9,15 @@ def index():
 
 @app.route('/summarize', methods=['POST'])
 def summarize():
-    data = request.get_json()
-    text = data.get('text', '')
-    if not text:
-        return jsonify({'error': 'テキストがありません'}), 400
-    summary = summarize_text(text)
-    return jsonify({'summary': summary})
+    try:
+        data = request.get_json()
+        text = data.get('text', '')
+        if not text:
+            return jsonify({'error': 'テキストがありません'}), 400
+        summary = summarize_text(text)
+        return jsonify({'summary': summary})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
